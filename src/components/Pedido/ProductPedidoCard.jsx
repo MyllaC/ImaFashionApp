@@ -1,6 +1,6 @@
-import styles from "./productPedidoCard.module.css";
-import { XCircle } from "phosphor-react";
-import axios from "axios";
+import styles from './productPedidoCard.module.css'
+import { XCircle } from 'phosphor-react'
+import axios from 'axios'
 
 export function ProductPedidoCard({
   id,
@@ -10,7 +10,7 @@ export function ProductPedidoCard({
   price,
   qty,
   size,
-  onRemove,
+  onRemove
 }) {
   return (
     <span className={styles.card}>
@@ -28,5 +28,5 @@ export function ProductPedidoCard({
         <p>Total: R$ {price * qty},00</p>
       </div>
     </span>
-  );
+  )
 }

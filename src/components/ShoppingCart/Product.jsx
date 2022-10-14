@@ -1,7 +1,7 @@
-import { Trash, MinusCircle, PlusCircle } from "phosphor-react";
-import styles from "./Product.module.css";
-import ImageProduct from "./ImageProduct";
-import axios from "axios";
+import { Trash, MinusCircle, PlusCircle } from 'phosphor-react'
+import styles from './Product.module.css'
+import ImageProduct from './ImageProduct'
+import axios from 'axios'
 
 export default function Product({
   onIncrease,
@@ -13,7 +13,7 @@ export default function Product({
   name,
   price,
   qty,
-  size,
+  size
 }) {
   return (
     <div className={styles.product}>
@@ -26,9 +26,11 @@ export default function Product({
           className={styles.buttonRemoveItem}
           onClick={() => {
             axios
-              .delete(`http://localhost:8180/carrinhodecompras/${id}`)
+              .delete(
+                `https://app-imafashion.herokuapp.com/carrinhodecompras/${id}`
+              )
               .then(() => onRemove(index))
-              .catch((err) => console.log(err.message));
+              .catch(err => console.log(err.message))
           }}
         >
           <i className={styles.phTrash}>
@@ -52,12 +54,12 @@ export default function Product({
               onClick={() => {
                 axios
                   .put(
-                    `http://localhost:8180/carrinhodecompras/removeProduct/${id}`
+                    `https://app-imafashion.herokuapp.com/carrinhodecompras/removeProduct/${id}`
                   )
                   .then(() => {
-                    onDecrease(id, size);
+                    onDecrease(id, size)
                   })
-                  .catch((err) => console.log(err.message));
+                  .catch(err => console.log(err.message))
               }}
             >
               <i className={styles.phMinusCircle}>
@@ -71,12 +73,12 @@ export default function Product({
               onClick={() => {
                 axios
                   .put(
-                    `http://localhost:8180/carrinhodecompras/addProduct/${id}`
+                    `https://app-imafashion.herokuapp.com/carrinhodecompras/addProduct/${id}`
                   )
                   .then(() => {
-                    onIncrease(id, size);
+                    onIncrease(id, size)
                   })
-                  .catch((err) => console.log(err.message));
+                  .catch(err => console.log(err.message))
               }}
             >
               <i className={styles.phPlusCircle}>
@@ -87,5 +89,5 @@ export default function Product({
         </div>
       </div>
     </div>
-  );
+  )
 }
