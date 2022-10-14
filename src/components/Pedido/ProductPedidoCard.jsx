@@ -1,6 +1,4 @@
-import styles from './productPedidoCard.module.css'
-import { XCircle } from 'phosphor-react'
-import axios from 'axios'
+import styles from './ProductPedidoCard.module.css'
 
 export function ProductPedidoCard({
   id,
